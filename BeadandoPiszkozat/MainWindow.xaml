@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeadandoPiszkozat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Login" Height="210" Width="400">
+	<StackPanel>
+		<Label Content="Login" FontSize="20" HorizontalAlignment="Center"/>
+		<Label Content="Login: " HorizontalAlignment="Center"/>
+		<TextBox x:Name="txtBxName" Width="100" Text="{Binding LoginName}"/>
+		<Label Content="Password:" HorizontalAlignment="Center"/>
+		<TextBox x:Name="psswrdBxPassword" Width="100" Text="{Binding Password}"/>
+		<Button Content="Enter" Width="50" Margin="0,5,0,0" Command="{Binding EnterLogin}">
+		</Button>
+	</StackPanel>
 </Window>

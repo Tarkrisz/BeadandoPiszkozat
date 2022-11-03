@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="BeadandoPiszkozat.View.CarsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BeadandoPiszkozat.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <StackPanel>
+		<TextBlock Text="Cars" FontSize="30" HorizontalAlignment="Center"/>
+		<StackPanel>
+			<ScrollViewer Grid.Row="2" Grid.Column="1" Height="300" Width="auto">
+				<DataGrid x:Name="dtGrd" Width="800" AutoGenerateColumns="False" Background="Azure" ItemsSource="{Binding Path=Cars, Mode=TwoWay}">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
+						<DataGridTextColumn Header="Brand" Width="auto" Binding="{Binding Path=Brand}"/>
+						<DataGridTextColumn Header="Model" Width="auto" Binding="{Binding Path=Model}"/>
+						<DataGridTextColumn Header="Fuel" Width="auto" Binding="{Binding Path=Fuel}"/>
+						<DataGridTextColumn Header="MaxPassenger" Width="auto" Binding="{Binding Path=MaxPassenger}"/>
+						<DataGridTextColumn Header="NumberOfDoors" Width="auto" Binding="{Binding Path=NumberOfDoors}"/>
+						<DataGridTextColumn Header="AvailableType" Width="auto" Binding="{Binding Path=AvailableType}"/>
+						<DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Path=Price}"/>
+					</DataGrid.Columns>
+				</DataGrid>
+			</ScrollViewer>
+		</StackPanel>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				
+			</Grid.RowDefinitions>
+		</Grid>
+	</StackPanel>
+</UserControl>

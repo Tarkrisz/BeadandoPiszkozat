@@ -4,9 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeadandoPiszkozat.View"
+		xmlns:view="clr-namespace:BeadandoPiszkozat.View"
         mc:Ignorable="d"
-        Title="Main" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Main" Height="600" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+	<Grid Background="Aquamarine">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="100"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Column="0">
+			<Button x:Name="bttnMain" Content="Main" Height="50" Width="100" Click="bttnMain_Click"/>
+			<Button x:Name="bttnDatas" Content="Datas" Height="50" Width="100" Click="bttnDatas_Click" />
+			<Button x:Name="bttnAdmin" Content="Admin" Height="50" Width="100" Click="bttnAdmin_Click" />
+		</StackPanel>
+		<Frame x:Name="Mnwfrm" Grid.Column="1" NavigationUIVisibility="Hidden">
+
+		</Frame>
+	</Grid>
 </Window>

@@ -16,7 +16,7 @@ namespace BeadandoPiszkozat.ViewModel
 		private string _loginName;
 		private string _password;
 
-		public string _type;
+		public static string _type;
 		public string LoginName
 		{
 			get { return _loginName; }

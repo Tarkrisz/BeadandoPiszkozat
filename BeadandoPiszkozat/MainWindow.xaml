@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeadandoPiszkozat"
         mc:Ignorable="d"
-        Title="Login" Height="210" Width="400">
+        Title="Login" Height="210" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 	<StackPanel>
 		<Label Content="Login" FontSize="20" HorizontalAlignment="Center"/>
 		<Label Content="Login: " HorizontalAlignment="Center"/>

@@ -23,7 +23,6 @@ namespace BeadandoPiszkozat.View
 		public CarsView _carView;
 		public BossView _bossView;
 		public EmployeeView _employeeView;
-		public CarViewModel _carViewModel;
 		public Main()
 		{
 			InitializeComponent();
@@ -49,8 +48,6 @@ namespace BeadandoPiszkozat.View
 		private void bttnMain_Click(object sender, RoutedEventArgs e)
 		{
 			Mnwfrm.Content = _carView;
-			_carViewModel = new CarViewModel();
-			DataContext = _carViewModel;
 		}
 
 		private void bttnDatas_Click(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeadandoPiszkozat.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace BeadandoPiszkozat.View
 	/// </summary>
 	public partial class CarsView : UserControl
 	{
+		CarViewModel _carViewModel;
 		public CarsView()
 		{
 			InitializeComponent();
+			_carViewModel = new CarViewModel();
+			DataContext = _carViewModel;
 		}
 	}
 }

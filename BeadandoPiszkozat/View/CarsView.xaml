@@ -24,13 +24,44 @@
 				</DataGrid>
 			</ScrollViewer>
 		</StackPanel>
-		<Grid>
+		<Grid Margin="5" Height="150">
 			<Grid.ColumnDefinitions>
-				
+				<ColumnDefinition Width="225"/>
+				<ColumnDefinition Width="225"/>
+				<ColumnDefinition Width="225"/>
+				<ColumnDefinition Width="225"/>
 			</Grid.ColumnDefinitions>
-			<Grid.RowDefinitions>
-				
-			</Grid.RowDefinitions>
+			<StackPanel Grid.Column="0" Orientation="Vertical">
+				<Label Content="ID" HorizontalAlignment="Center"/>
+				<TextBox x:Name="txtBxId" Padding="5" Margin="5" Text="{Binding IdofCars}"/>
+				<Label Content="Brand" HorizontalAlignment="Center"/>
+				<TextBox x:Name="txtBxBrand" Padding="5" Margin="5" Text="{Binding Brand}"/>
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Vertical">
+				<Label Content="Model" HorizontalAlignment="Center"/>
+				<TextBox x:Name="txtBxModel" Padding="5" Margin="5" Text="{Binding Model}"/>
+				<Label Content="Fuel" HorizontalAlignment="Center"/>
+				<TextBox x:Name="txtBxFuel" Padding="5" Margin="5" Text="{Binding Fuel}"/>
+			</StackPanel>
+			<StackPanel Grid.Column="2" Orientation="Vertical">
+				<Label Content="MaxPassanger" HorizontalAlignment="Center"/>
+				<TextBox x:Name="txtBxMaxPassanger" Padding="5" Margin="5" Text="{Binding MaxPassanger}"/>
+				<Label Content="NumberOfDoors" HorizontalAlignment="Center"/>
+				<TextBox x:Name="txtBxNumberOfDoors" Padding="5" Margin="5" Text="{Binding NumberOfDoors}"/>
+			</StackPanel>
+			<StackPanel Grid.Column="3" Orientation="Vertical">
+				<Label Content="AvailableType" HorizontalAlignment="Center"/>
+				<TextBox x:Name="txtBxAvailableType" Padding="5" Margin="5" Text="{Binding AvailableType}"/>
+				<Label Content="Price" HorizontalAlignment="Center"/>
+				<TextBox x:Name="txtBxPrice" Padding="5" Margin="5" Text="{Binding Price}"/>
+			</StackPanel>
 		</Grid>
+		<StackPanel Orientation="Horizontal">
+			<TextBox Height="50" Width="400" Margin="10 0 0 0"/>
+			<Button Content="Search" Width="100" Margin="20 0 0 0" />
+			<Button Content="Add" Width="100" Margin="20 0 0 0" />
+			<Button Content="Delete" Width="100" Margin="20 0 0 0" />
+			<Button Content="Update" Width="100" Margin="20 0 0 0" />
+		</StackPanel>
 	</StackPanel>
 </UserControl>

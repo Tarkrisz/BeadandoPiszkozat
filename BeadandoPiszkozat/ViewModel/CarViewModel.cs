@@ -19,6 +19,7 @@ namespace BeadandoPiszkozat.ViewModel
 		string _numberOfDoors;
 		string _availableType;
 		string _price;
+	
 		public int IdofCars {
 			get { return _id; }
 			set { _id = value; }
@@ -55,16 +56,90 @@ namespace BeadandoPiszkozat.ViewModel
 		public CarsDTO CurrentCar { get; set; }
 
 		private CarService CarService;
+		public string Message { get; set; }
+		public RelayCommand SaveCommand { get; }
+		public RelayCommand UpdateCommand { get; }
+		public RelayCommand DeleteCommand { get; }
+		public RelayCommand SearchCommand { get; }
 		public CarViewModel()
 		{
 			CarService = new CarService();
 			LoadCars();
 			CurrentCar = new CarsDTO();
+			SaveCommand = new RelayCommand(save);
+			UpdateCommand = new RelayCommand(update);
+			DeleteCommand = new RelayCommand(delete);
+			SearchCommand = new RelayCommand(search);
 		}
 
 		private void LoadCars()
 		{
 			Cars = new ObservableCollection<CarsDTO>(CarService.getAll());
+		}
+
+		private void save()
+		{
+			try
+			{
+				bool isSaved = CarService.add(CurrentCar);
+				LoadCars();
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+		}
+
+		private void update()
+		{
+			try
+			{
+				var isUpdated = CarService.update(CurrentCar);
+				LoadCars();
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+		}
+
+		private void delete()
+		{
+			try
+			{
+				var isDeleted = CarService.delete(CurrentCar.Id);
+				LoadCars();
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+		}
+
+		private void search()
+		{
+			try
+			{
+				CarsDTO cars = CarService.search(CurrentCar.Id);
+				if (cars != null)
+				{
+					CurrentCar.Brand = cars.Brand;
+					CurrentCar.Model = cars.Model;
+					CurrentCar.Fuel = cars.Fuel;
+					CurrentCar.MaxPassenger = cars.MaxPassenger;
+					CurrentCar.NumberOfDoors = cars.NumberOfDoors;
+					CurrentCar.AvailableType = cars.AvailableType;
+					CurrentCar.Price = cars.Price;
+				}
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
 		}
 	}
 }

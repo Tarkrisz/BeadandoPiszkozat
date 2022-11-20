@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeadandoPiszkozat.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace BeadandoPiszkozat.View
 	/// </summary>
 	public partial class EmployeeView : UserControl
 	{
+		EmployeeViewModel _employeeViewModel;
 		public EmployeeView()
 		{
 			InitializeComponent();
+			_employeeViewModel = new EmployeeViewModel();
+			DataContext = _employeeViewModel;
 		}
 	}
 }

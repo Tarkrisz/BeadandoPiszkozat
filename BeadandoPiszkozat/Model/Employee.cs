@@ -11,16 +11,16 @@ namespace BeadandoPiszkozat.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Employee
-    {
-        public int ID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public System.DateTime DateOfBirht { get; set; }
-        public string Gender { get; set; }
-        public string Position { get; set; }
-        public string Salary { get; set; }
-        public string CityOfWork { get; set; }
-    }
+
+	public partial class Employee
+	{
+		public int ID { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public System.DateTime DateOfBirht { get; set; }
+		public string Gender { get; set; }
+		public string Position { get; set; }
+		public string Salary { get; set; }
+		public string CityOfWork { get; set; }
+	}
 }

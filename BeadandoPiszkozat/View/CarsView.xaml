@@ -58,7 +58,7 @@
 		</Grid>
 		<StackPanel Orientation="Horizontal">
 			<TextBox Height="50" Width="400" Margin="10 0 0 0" Text="{Binding Path=CurrentBrand, Mode=TwoWay}"/>
-			<Button Content="Search" Width="100" Margin="20 0 0 0" Command="{Binding Path=SearchCommand}" />
+			<Button Content="Search" Width="100" Margin="20 0 0 0" Command="{Binding Path=PrintCommand}" />
 			<Button Content="Add" Width="100" Margin="20 0 0 0" Command="{Binding Path=SaveCommand}" />
 			<Button Content="Delete" Width="100" Margin="20 0 0 0" Command="{Binding Path=DeleteCommand}" />
 			<Button Content="Update" Width="100" Margin="20 0 0 0" Command="{Binding Path=UpdateCommand}" />

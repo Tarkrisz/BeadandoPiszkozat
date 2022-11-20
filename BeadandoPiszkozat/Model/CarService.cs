@@ -9,13 +9,23 @@ namespace BeadandoPiszkozat.Model
 {
 	public class CarService
 	{
+		//private CarsDTO selectedUser;
+		//public CarsDTO SelectedUser
+		//{
+		//	get => selectedUser;
+		//	set
+		//	{
+		//		var u = value as CarsDTO;
+		//		selectedUser = u;
+		//	}
+		//}
 		private ProbaLoginDBEntities _probaLoginDBEntities;
-		string _currentBrand;
-		public string CurrentBrand
-		{
-			get { return _currentBrand; }
-			set { _currentBrand = value; }
-		}
+		//string _currentBrand;
+		//public string CurrentBrand
+		//{
+		//	get { return _currentBrand; }
+		//	set { _currentBrand = value; }
+		//}
 		public CarService()
 		{
 			_probaLoginDBEntities = new ProbaLoginDBEntities();

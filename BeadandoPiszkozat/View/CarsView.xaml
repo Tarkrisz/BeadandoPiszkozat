@@ -10,7 +10,7 @@
 		<TextBlock Text="Cars" FontSize="30" HorizontalAlignment="Center"/>
 		<StackPanel>
 			<ScrollViewer Grid.Row="2" Grid.Column="1" Height="300" Width="auto">
-                <DataGrid x:Name="dtGrd" Width="800" AutoGenerateColumns="False" Background="Azure" ItemsSource="{Binding Path=Cars, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsReadOnly="True" SelectionMode="Single">
+				<DataGrid x:Name="dtGrd" Width="800" AutoGenerateColumns="False" Background="Azure" ItemsSource="{Binding Path=Cars, Mode=TwoWay}">
 					<DataGrid.Columns>
 						<DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
 						<DataGridTextColumn Header="Brand" Width="auto" Binding="{Binding Path=Brand}"/>
@@ -33,35 +33,33 @@
 			</Grid.ColumnDefinitions>
 			<StackPanel Grid.Column="0" Orientation="Vertical">
 				<Label Content="ID" HorizontalAlignment="Center"/>
-				<!-- <TextBox x:Name="txtBxId" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Id, Mode=TwoWay}"/> -->
-                <TextBox x:Name="txtBxId" Padding="5" Margin="5" Text="{Binding Path=SelectedItem.Id, ElementName=dtGrd, Mode=TwoWay}"/>
+				<TextBox x:Name="txtBxId" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Id, Mode=TwoWay}"/>
 				<Label Content="Brand" HorizontalAlignment="Center"/>
-                <TextBox x:Name="txtBxBrand" Padding="5" Margin="5" Text="{Binding Path=SelectedItem.Brand, ElementName=dtGrd, Mode=TwoWay}"/>
+				<TextBox x:Name="txtBxBrand" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Brand, Mode=TwoWay}"/>
 			</StackPanel>
 			<StackPanel Grid.Column="1" Orientation="Vertical">
 				<Label Content="Model" HorizontalAlignment="Center"/>
-                <TextBox x:Name="txtBxModel" Padding="5" Margin="5" Text="{Binding Path=SelectedItem.Model, ElementName=dtGrd, Mode=TwoWay}"/>
+				<TextBox x:Name="txtBxModel" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Model, Mode=TwoWay}"/>
 				<Label Content="Fuel" HorizontalAlignment="Center"/>
-                <TextBox x:Name="txtBxFuel" Padding="5" Margin="5" Text="{Binding Path=SelectedItem.Fuel, ElementName=dtGrd, Mode=TwoWay}"/>
+				<TextBox x:Name="txtBxFuel" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Fuel, Mode=TwoWay}"/>
 			</StackPanel>
 			<StackPanel Grid.Column="2" Orientation="Vertical">
 				<Label Content="MaxPassanger" HorizontalAlignment="Center"/>
-                <TextBox x:Name="txtBxMaxPassanger" Padding="5" Margin="5" Text="{Binding Path=SelectedItem.MaxPassenger, ElementName=dtGrd, Mode=TwoWay}"/>
+				<TextBox x:Name="txtBxMaxPassanger" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.MaxPassenger, Mode=TwoWay}"/>
 				<Label Content="NumberOfDoors" HorizontalAlignment="Center"/>
-                <TextBox x:Name="txtBxNumberOfDoors" Padding="5" Margin="5" Text="{Binding Path=SelectedItem.NumberOfDoors, ElementName=dtGrd, Mode=TwoWay}"/>
+				<TextBox x:Name="txtBxNumberOfDoors" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.NumberOfDoors, Mode=TwoWay}"/>
 			</StackPanel>
 			<StackPanel Grid.Column="3" Orientation="Vertical">
 				<Label Content="AvailableType" HorizontalAlignment="Center"/>
-                <TextBox x:Name="txtBxAvailableType" Padding="5" Margin="5" Text="{Binding Path=SelectedItem.AvailableType, ElementName=dtGrd, Mode=TwoWay}"/>
+				<TextBox x:Name="txtBxAvailableType" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.AvailableType, Mode=TwoWay}"/>
 				<Label Content="Price" HorizontalAlignment="Center"/>
-                <TextBox x:Name="txtBxPrice" Padding="5" Margin="5" Text="{Binding Path=SelectedItem.Price, ElementName=dtGrd, Mode=TwoWay}"/>
+				<TextBox x:Name="txtBxPrice" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Price, Mode=TwoWay}"/>
 			</StackPanel>
 		</Grid>
 		<StackPanel Orientation="Horizontal">
 			<TextBox Height="50" Width="400" Margin="10 0 0 0" Text="{Binding Path=CurrentBrand, Mode=TwoWay}"/>
-			<Button Content="Search" Width="100" Margin="20 0 0 0" Command="{Binding Path=SearchCommand}" />
-			<!--<Button Content="Add" Width="100" Margin="20 0 0 0" Command="{Binding Path=SaveCommand}" />-->
-            <Button Content="Add" Width="100" Margin="20 0 0 0" Click="Button_Click_Add" />
+			<Button Content="Search" Width="100" Margin="20 0 0 0" Command="{Binding Path=PrintCommand}" />
+			<Button Content="Add" Width="100" Margin="20 0 0 0" Command="{Binding Path=SaveCommand}" />
 			<Button Content="Delete" Width="100" Margin="20 0 0 0" Command="{Binding Path=DeleteCommand}" />
 			<Button Content="Update" Width="100" Margin="20 0 0 0" Command="{Binding Path=UpdateCommand}" />
 		</StackPanel>

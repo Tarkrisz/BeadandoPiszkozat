@@ -73,9 +73,12 @@
     </ApplicationDefinition>
     <Compile Include="Model\CarsDTO.cs" />
     <Compile Include="Model\CarService.cs" />
+    <Compile Include="Model\EmployeeDTO.cs" />
+    <Compile Include="Model\EmployeeService.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\Base\RelayCommand.cs" />
     <Compile Include="ViewModel\CarViewModel.cs" />
+    <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="View\BossView.xaml.cs">
       <DependentUpon>BossView.xaml</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using BeadandoPiszkozat.ViewModel;
+﻿using BeadandoPiszkozat.Model;
+using BeadandoPiszkozat.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,5 +30,16 @@ namespace BeadandoPiszkozat.View
 			_carViewModel = new CarViewModel();
 			DataContext = _carViewModel;
 		}
-	}
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Print(object sender, RoutedEventArgs e)
+        {
+			PrintView pv = new PrintView((CarsDTO)dtGrd.SelectedItem);
+			pv.Show();
+		}
+    }
 }

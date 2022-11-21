@@ -58,7 +58,8 @@ namespace BeadandoPiszkozat.ViewModel
 		}
 		void Mehet()
 		{
-			SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-NH9MBOU; Initial Catalog=ProbaLoginDB; Integrated Security=true;");
+			//SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-NH9MBOU; Initial Catalog=ProbaLoginDB; Integrated Security=true;");
+			SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-VQ5POJE; Initial Catalog=ProbaLoginDB; Integrated Security=true;");
 			try
 			{
 				if (sqlCon.State == System.Data.ConnectionState.Closed)

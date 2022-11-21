@@ -10,7 +10,7 @@
 		<TextBlock Text="Cars" FontSize="30" HorizontalAlignment="Center"/>
 		<StackPanel>
 			<ScrollViewer Grid.Row="2" Grid.Column="1" Height="300" Width="auto">
-				<DataGrid x:Name="dtGrd" Width="800" AutoGenerateColumns="False" Background="Azure" ItemsSource="{Binding Path=Cars, Mode=TwoWay}" IsReadOnly="True">
+                <DataGrid x:Name="dtGrd" Width="800" AutoGenerateColumns="False" Background="Azure" ItemsSource="{Binding Path=Cars, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsReadOnly="True" SelectionMode="Single">
 					<DataGrid.Columns>
 						<DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
 						<DataGridTextColumn Header="Brand" Width="auto" Binding="{Binding Path=Brand}"/>
@@ -60,7 +60,8 @@
 		<StackPanel Orientation="Horizontal">
 			<TextBox Height="50" Width="400" Margin="10 0 0 0" Text="{Binding Path=CurrentBrand, Mode=TwoWay}"/>
 			<Button Content="Search" Width="100" Margin="20 0 0 0" Command="{Binding Path=SearchCommand}" />
-			<Button Content="Add" Width="100" Margin="20 0 0 0" Command="{Binding Path=SaveCommand}" />
+			<!--<Button Content="Add" Width="100" Margin="20 0 0 0" Command="{Binding Path=SaveCommand}" />-->
+            <Button Content="Add" Width="100" Margin="20 0 0 0" Click="Button_Click_Add" />
 			<Button Content="Delete" Width="100" Margin="20 0 0 0" Command="{Binding Path=DeleteCommand}" />
 			<Button Content="Update" Width="100" Margin="20 0 0 0" Command="{Binding Path=UpdateCommand}" />
 		</StackPanel>

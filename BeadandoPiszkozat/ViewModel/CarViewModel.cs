@@ -1,4 +1,5 @@
 ﻿using BeadandoPiszkozat.Model;
+using BeadandoPiszkozat.View;
 using BeadandoPiszkozat.ViewModel.Base;
 using System;
 using System.Collections.Generic;
@@ -64,8 +65,6 @@ namespace BeadandoPiszkozat.ViewModel
 
         public CarsDTO CurrentCar { get; set; }
 
-        public ObservableCollection<CarsDTO> Selected_Row { get; set; } //Viewban selected row a datagridből
-
         private CarService CarService;
         public string Message { get; set; }
         public RelayCommand SaveCommand { get; }
@@ -104,7 +103,7 @@ namespace BeadandoPiszkozat.ViewModel
 
         private void update()
         {
-            try
+            try 
             {
                 var isUpdated = CarService.update(CurrentCar);
                 LoadCars();

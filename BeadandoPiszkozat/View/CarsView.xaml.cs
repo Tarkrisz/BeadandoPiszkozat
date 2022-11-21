@@ -75,6 +75,8 @@ namespace BeadandoPiszkozat.View
             }
             finally
             {
+                _carViewModel.LoadCars();
+                DataContext = _carViewModel;
                 sqlCon.Close();
             }
         }

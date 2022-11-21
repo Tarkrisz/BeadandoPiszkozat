@@ -82,7 +82,7 @@ namespace BeadandoPiszkozat.ViewModel
             SearchCommand = new RelayCommand(search);
         }
 
-        private void LoadCars()
+        public void LoadCars()
         {
             Cars = new ObservableCollection<CarsDTO>(CarService.getAll());
         }

@@ -9,23 +9,10 @@ namespace BeadandoPiszkozat.Model
 {
 	public class CarService
 	{
-		//private CarsDTO selectedUser;
-		//public CarsDTO SelectedUser
-		//{
-		//	get => selectedUser;
-		//	set
-		//	{
-		//		var u = value as CarsDTO;
-		//		selectedUser = u;
-		//	}
-		//}
+
 		private ProbaLoginDBEntities _probaLoginDBEntities;
-		//string _currentBrand;
-		//public string CurrentBrand
-		//{
-		//	get { return _currentBrand; }
-		//	set { _currentBrand = value; }
-		//}
+		private int _lastId;
+
 		public CarService()
 		{
 			_probaLoginDBEntities = new ProbaLoginDBEntities();
@@ -63,14 +50,31 @@ namespace BeadandoPiszkozat.Model
 
 		}
 
+		void lastId()
+		{
+
+			using (var db = new ProbaLoginDBEntities())
+			{
+				var querry = from n in db.Cars
+							 where n.ID != null
+							 select n;
+
+				foreach (var item in querry)
+				{
+					_lastId = item.ID;
+				}
+				
+			}
+		}
 
 		public bool add(CarsDTO newCar)
 		{
+			lastId();
 			bool isAdded = false;
 			try
 			{
 				var car = new Cars();
-				car.ID = newCar.Id;
+				car.ID = _lastId + 1;
 				car.Brand = newCar.Brand;
 				car.Model = newCar.Model;
 				car.Fuel = newCar.Fuel;
@@ -135,34 +139,6 @@ namespace BeadandoPiszkozat.Model
 			}
 			return isDeleted;
 		}
-		public CarsDTO search(int id)
-		{
-			CarsDTO _carsDTO = null;
-			try
-			{
-				var car = _probaLoginDBEntities.Cars.Find(id);
-				if (car!= null)
-				{
-					_carsDTO = new CarsDTO()
-					{
-						Id = car.ID,
-						Brand = car.Brand,
-						Model = car.Model,
-						Fuel = car.Fuel,
-						MaxPassenger = car.MaxPassenger,
-						NumberOfDoors = car.NumberOfDoors,
-						AvailableType = car.AvailableType,
-						Price = car.Price
-					};
-				}
-			}
-			catch (Exception ex)
-			{
-
-				throw ex;
-			}
-
-			return _carsDTO;
-		}
+		
 	}
 }

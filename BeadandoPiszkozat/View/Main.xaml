@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BeadandoPiszkozat.View"
 		xmlns:view="clr-namespace:BeadandoPiszkozat.View"
         mc:Ignorable="d"
-        Title="Main" Height="600" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Main" Height="450" Width="1100" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 	<Grid Background="Aquamarine">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="100"/>

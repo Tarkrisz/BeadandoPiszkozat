@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BeadandoPiszkozat.View"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="900">
-    <StackPanel>
-		<TextBlock Text="Cars" FontSize="30" HorizontalAlignment="Center"/>
+             d:DesignHeight="400" d:DesignWidth="1000">
+	<StackPanel Orientation="Horizontal">
 		<StackPanel>
-			<ScrollViewer Grid.Row="2" Grid.Column="1" Height="300" Width="auto">
+			<TextBlock Text="Cars" FontSize="30" HorizontalAlignment="Center"/>
+			<ScrollViewer Grid.Row="2" Grid.Column="1" Height="300" Width="550" Margin="10">
 				<DataGrid x:Name="dtGrd" Width="800" AutoGenerateColumns="False" Background="Azure" ItemsSource="{Binding Path=Cars, Mode=TwoWay}">
 					<DataGrid.Columns>
 						<DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
@@ -24,44 +24,48 @@
 				</DataGrid>
 			</ScrollViewer>
 		</StackPanel>
-		<Grid Margin="5" Height="150">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="225"/>
-				<ColumnDefinition Width="225"/>
-				<ColumnDefinition Width="225"/>
-				<ColumnDefinition Width="225"/>
-			</Grid.ColumnDefinitions>
-			<StackPanel Grid.Column="0" Orientation="Vertical">
-				<Label Content="ID" HorizontalAlignment="Center"/>
-				<TextBox x:Name="txtBxId" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Id, Mode=TwoWay}"/>
-				<Label Content="Brand" HorizontalAlignment="Center"/>
-				<TextBox x:Name="txtBxBrand" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Brand, Mode=TwoWay}"/>
-			</StackPanel>
-			<StackPanel Grid.Column="1" Orientation="Vertical">
-				<Label Content="Model" HorizontalAlignment="Center"/>
-				<TextBox x:Name="txtBxModel" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Model, Mode=TwoWay}"/>
-				<Label Content="Fuel" HorizontalAlignment="Center"/>
-				<TextBox x:Name="txtBxFuel" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Fuel, Mode=TwoWay}"/>
-			</StackPanel>
-			<StackPanel Grid.Column="2" Orientation="Vertical">
-				<Label Content="MaxPassanger" HorizontalAlignment="Center"/>
-				<TextBox x:Name="txtBxMaxPassanger" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.MaxPassenger, Mode=TwoWay}"/>
-				<Label Content="NumberOfDoors" HorizontalAlignment="Center"/>
-				<TextBox x:Name="txtBxNumberOfDoors" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.NumberOfDoors, Mode=TwoWay}"/>
-			</StackPanel>
-			<StackPanel Grid.Column="3" Orientation="Vertical">
-				<Label Content="AvailableType" HorizontalAlignment="Center"/>
-				<TextBox x:Name="txtBxAvailableType" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.AvailableType, Mode=TwoWay}"/>
-				<Label Content="Price" HorizontalAlignment="Center"/>
-				<TextBox x:Name="txtBxPrice" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Price, Mode=TwoWay}"/>
-			</StackPanel>
-		</Grid>
-		<StackPanel Orientation="Horizontal">
-			<TextBox Height="50" Width="400" Margin="10 0 0 0" Text="{Binding Path=CurrentBrand, Mode=TwoWay}"/>
-			<Button Content="Search" Width="100" Margin="20 0 0 0" Command="{Binding Path=PrintCommand}" />
-			<Button Content="Add" Width="100" Margin="20 0 0 0" Command="{Binding Path=SaveCommand}" />
-			<Button Content="Delete" Width="100" Margin="20 0 0 0" Command="{Binding Path=DeleteCommand}" />
-			<Button Content="Update" Width="100" Margin="20 0 0 0" Command="{Binding Path=UpdateCommand}" />
+		<StackPanel>
+			<Grid Margin="5">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="200"/>
+					<ColumnDefinition Width="200"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="150"/>
+					<RowDefinition Height="150"/>
+					<RowDefinition Height="100"/>
+				</Grid.RowDefinitions>
+				<StackPanel Grid.Column="0" Orientation="Vertical">
+					<Label Content="ID" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxId" Padding="5" Margin="5" />
+					<Label Content="Brand" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxBrand" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Brand, Mode=TwoWay}"/>
+				</StackPanel>
+				<StackPanel Grid.Column="1" Orientation="Vertical">
+					<Label Content="Model" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxModel" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Model, Mode=TwoWay}"/>
+					<Label Content="Fuel" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxFuel" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Fuel, Mode=TwoWay}"/>
+				</StackPanel>
+				<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical">
+					<Label Content="MaxPassanger" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxMaxPassanger" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.MaxPassenger, Mode=TwoWay}"/>
+					<Label Content="NumberOfDoors" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxNumberOfDoors" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.NumberOfDoors, Mode=TwoWay}"/>
+				</StackPanel>
+				<StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+					<Label Content="AvailableType" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxAvailableType" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.AvailableType, Mode=TwoWay}"/>
+					<Label Content="Price" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxPrice" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Price, Mode=TwoWay}"/>
+				</StackPanel>
+				<StackPanel Grid.ColumnSpan="2" Grid.Row="2" Orientation="Horizontal">
+					<Button Content="Print" Width="70" Height="70" Margin="20 0 0 0"/>
+					<Button Content="Add" Width="70" Height="70" Margin="20 0 0 0" Command="{Binding Path=SaveCommand}" />
+					<Button Content="Delete" Width="70" Height="70" Margin="20 0 0 0" Command="{Binding Path=DeleteCommand}" />
+					<Button Content="Update" Width="70" Height="70" Margin="20 0 0 0" Command="{Binding Path=UpdateCommand}" />
+				</StackPanel>
+			</Grid>
 		</StackPanel>
 	</StackPanel>
 </UserControl>

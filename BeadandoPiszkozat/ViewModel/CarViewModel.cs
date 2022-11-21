@@ -62,7 +62,6 @@ namespace BeadandoPiszkozat.ViewModel
 		public RelayCommand SaveCommand { get; }
 		public RelayCommand UpdateCommand { get; }
 		public RelayCommand DeleteCommand { get; }
-		public RelayCommand SearchCommand { get; }
 		public RelayCommand PrintCommand { get;  }
 		public CarViewModel()
 		{
@@ -72,7 +71,6 @@ namespace BeadandoPiszkozat.ViewModel
 			SaveCommand = new RelayCommand(save);
 			UpdateCommand = new RelayCommand(update);
 			DeleteCommand = new RelayCommand(delete);
-			SearchCommand = new RelayCommand(search);
 		}
 
 		private void LoadCars()
@@ -115,29 +113,6 @@ namespace BeadandoPiszkozat.ViewModel
 			{
 				var isDeleted = CarService.delete(CurrentCar.Id);
 				LoadCars();
-			}
-			catch (Exception ex)
-			{
-
-				throw ex;
-			}
-		}
-
-		private void search()
-		{
-			try
-			{
-				CarsDTO cars = CarService.search(CurrentCar.Id);
-				if (cars != null)
-				{
-					CurrentCar.Brand = cars.Brand;
-					CurrentCar.Model = cars.Model;
-					CurrentCar.Fuel = cars.Fuel;
-					CurrentCar.MaxPassenger = cars.MaxPassenger;
-					CurrentCar.NumberOfDoors = cars.NumberOfDoors;
-					CurrentCar.AvailableType = cars.AvailableType;
-					CurrentCar.Price = cars.Price;
-				}
 			}
 			catch (Exception ex)
 			{

@@ -37,7 +37,7 @@
 				</Grid.RowDefinitions>
 				<StackPanel Grid.Column="0" Orientation="Vertical">
 					<Label Content="ID" HorizontalAlignment="Center"/>
-					<TextBox x:Name="txtBxId" Padding="5" Margin="5" />
+					<TextBox x:Name="txtBxId" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Id, Mode=TwoWay}"/>
 					<Label Content="Brand" HorizontalAlignment="Center"/>
 					<TextBox x:Name="txtBxBrand" Padding="5" Margin="5" Text="{Binding Path=CurrentCar.Brand, Mode=TwoWay}"/>
 				</StackPanel>

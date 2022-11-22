@@ -14,7 +14,7 @@
 		</Grid.ColumnDefinitions>
 		<StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Column="0">
 			<Button x:Name="bttnMain" Content="Main" Height="50" Width="100" Click="bttnMain_Click"/>
-			<Button x:Name="bttnDatas" Content="Datas" Height="50" Width="100" Click="bttnDatas_Click" />
+			<Button x:Name="bttnDatas" Content="Employee" Height="50" Width="100" Click="bttnDatas_Click" />
 			<Button x:Name="bttnAdmin" Content="Admin" Height="50" Width="100" Click="bttnAdmin_Click" />
 		</StackPanel>
 		<Frame x:Name="Mnwfrm" Grid.Column="1" NavigationUIVisibility="Hidden">

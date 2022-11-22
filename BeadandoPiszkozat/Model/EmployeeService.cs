@@ -8,8 +8,9 @@ namespace BeadandoPiszkozat.Model
 {
 	public class EmployeeService
 	{
-		private ProbaLoginDBEntities _probaLoginDBEntities;
 
+		private ProbaLoginDBEntities _probaLoginDBEntities;
+		private int _lastId;
 		public EmployeeService()
 		{
 			_probaLoginDBEntities = new ProbaLoginDBEntities();
@@ -44,6 +45,52 @@ namespace BeadandoPiszkozat.Model
 
 			return employeeDTO;
 
+		}
+
+		void lastId()
+		{
+
+			using (var db = new ProbaLoginDBEntities())
+			{
+				var querry = from n in db.Employee
+							 where n.ID >= 0
+							 select n;
+
+				foreach (var item in querry)
+				{
+					_lastId = item.ID;
+				}
+
+			}
+		}
+
+		public bool addEmployee(EmployeeDTO newEmployee)
+		{
+
+			lastId();
+			bool isAdded = false;
+			try
+			{
+				var _employee = new Employee();
+				_employee.ID = _lastId + 1;
+				_employee.FirstName = newEmployee.FirstName;
+				_employee.LastName = newEmployee.LastName;
+				_employee.DateOfBirht = newEmployee.DateOfBirht;
+				_employee.Gender = newEmployee.Gender;
+				_employee.Position = newEmployee.Position;
+				_employee.Salary = newEmployee.Salary;
+				_employee.CityOfWork = newEmployee.CityOfWork;
+
+				_probaLoginDBEntities.Employee.Add(_employee);
+				var numberOfRowsAffected = _probaLoginDBEntities.SaveChanges();
+				isAdded = numberOfRowsAffected > 0;
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			return isAdded;
 		}
 	}
 }

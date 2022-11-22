@@ -12,17 +12,35 @@ namespace BeadandoPiszkozat.ViewModel
 	public class EmployeeViewModel : BaseViewModel
 	{
 		public ObservableCollection<EmployeeDTO> employee { get; set; }
-		public EmployeeDTO currentEmploye;
+		public EmployeeDTO currentEmploye { get; set; }
 		public EmployeeService _employeeService;
+		public RelayCommand SaveCommand { get; }
+
 		public EmployeeViewModel()
 		{
 			_employeeService = new EmployeeService();
 			LoadEmployee();
+			currentEmploye = new EmployeeDTO();
+			SaveCommand = new RelayCommand(save);
 		}
 
 		private void LoadEmployee()
 		{
 			employee = new ObservableCollection<EmployeeDTO>(_employeeService.getAll());
+		}
+
+		private void save()
+		{
+			try
+			{
+				bool isSaved = _employeeService.addEmployee(currentEmploye);
+				LoadEmployee();
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
 		}
 	}
 }

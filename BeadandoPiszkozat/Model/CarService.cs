@@ -56,7 +56,7 @@ namespace BeadandoPiszkozat.Model
 			using (var db = new ProbaLoginDBEntities())
 			{
 				var querry = from n in db.Cars
-							 where n.ID != null
+							 where n.ID >= 0
 							 select n;
 
 				foreach (var item in querry)

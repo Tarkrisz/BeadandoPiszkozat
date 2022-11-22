@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BeadandoPiszkozat.View"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="900">
-    <StackPanel>
-		<TextBlock Text="Employee" FontSize="30" HorizontalAlignment="Center"/>
+             d:DesignHeight="400" d:DesignWidth="1000">
+	<StackPanel Orientation="Horizontal">
 		<StackPanel>
-			<ScrollViewer Height="300" Width="auto">
+			<TextBlock Text="Employee" FontSize="30" HorizontalAlignment="Center"/>
+			<ScrollViewer Height="300" Width="550" Margin="10">
 				<DataGrid x:Name="dtGrd" Width="800" AutoGenerateColumns="False" Background="Azure" ItemsSource="{Binding Path=employee, Mode=TwoWay}">
 					<DataGrid.Columns>
 						<DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=ID}"/>
@@ -23,6 +23,48 @@
 					</DataGrid.Columns>
 				</DataGrid>
 			</ScrollViewer>
+		</StackPanel>
+		<StackPanel>
+			<Grid Margin="5">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="200"/>
+					<ColumnDefinition Width="200"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="150"/>
+					<RowDefinition Height="150"/>
+					<RowDefinition Height="100"/>
+				</Grid.RowDefinitions>
+				<StackPanel Grid.Column="0" Grid.Row="0">
+					<Label Content="ID" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxId" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.ID, Mode=TwoWay}"/>
+					<Label Content="FirstName" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxFirstName" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.FirstName, Mode=TwoWay}"/>
+				</StackPanel>
+				<StackPanel Grid.Column="1" Grid.Row="0">
+					<Label Content="LastName" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxLastName" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.LastName, Mode=TwoWay}"/>
+					<Label Content="DateOfBirth" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxDateOfBirth" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.DateOfBirht, Mode=TwoWay}"/>
+				</StackPanel>
+				<StackPanel Grid.Column="0" Grid.Row="1">
+					<Label Content="Gender" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxGender" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.Gender, Mode=TwoWay}"/>
+					<Label Content="Position" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxPosition" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.Position, Mode=TwoWay}"/>
+				</StackPanel>
+				<StackPanel Grid.Column="1" Grid.Row="1">
+					<Label Content="Salary" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxSalary" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.Salary, Mode=TwoWay}"/>
+					<Label Content="CityOfWork" HorizontalAlignment="Center"/>
+					<TextBox x:Name="txtBxCityOfWork" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.CityOfWork, Mode=TwoWay}" />
+				</StackPanel>
+				<StackPanel Grid.ColumnSpan="2" Grid.Row="2" Orientation="Horizontal">
+					<Button Content="Add" Width="70" Height="70" Margin="50 0 0 0" Command="{Binding Path=SaveCommand}" />
+					<Button Content="Delete" Width="70" Height="70" Margin="50 0 0 0" />
+					<Button Content="Update" Width="70" Height="70" Margin="50 0 0 0" />
+				</StackPanel>
+			</Grid>
 		</StackPanel>
 	</StackPanel>
 </UserControl>

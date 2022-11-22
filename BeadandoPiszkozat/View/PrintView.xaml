@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:BeadandoPiszkozat.View"
         mc:Ignorable="d"
         Title="Print" Height="600" Width="500" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen">
-    <Grid>
+
+    <Grid x:Name="print">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
@@ -24,6 +25,6 @@
         <TextBlock x:Name="txtBxTitle" Grid.Row="1" Grid.Column="1" Text="AvailableType" HorizontalAlignment="Center"/>
         <TextBlock x:Name="txtBxData_Car" Grid.Row="2" Grid.Column="1" Text="Car data" HorizontalAlignment="Left"/>
         <TextBlock x:Name="txtBxData_Person" Grid.Row="3" Grid.Column="1" Text="Person data" HorizontalAlignment="Left"/>
-        <Button x:Name="bttnPrint" Grid.Row="4" Grid.Column="1" Height="30" Width="75" VerticalAlignment="Bottom">Print</Button>
+        <Button x:Name="bttnPrint" Grid.Row="4" Grid.Column="1" Height="30" Width="75" VerticalAlignment="Bottom" Click="bttnPrint_Click">Print</Button>
     </Grid>
 </Window>

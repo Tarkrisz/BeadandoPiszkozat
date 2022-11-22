@@ -68,5 +68,23 @@ namespace BeadandoPiszkozat.View
                 txtBxData_Person.Text = "";
             }
         }
+
+        private void bttnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.IsEnabled = false;
+
+                PrintDialog pd = new PrintDialog();
+                if (pd.ShowDialog() == true)
+                {
+                    pd.PrintVisual(print, "Valami");
+                }
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
+        }
     }
 }

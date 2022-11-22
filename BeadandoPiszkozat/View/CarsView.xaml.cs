@@ -22,7 +22,6 @@ namespace BeadandoPiszkozat.View
 	public partial class CarsView : UserControl
 	{
 		CarViewModel _carViewModel;
-		public string model;
 		public CarsView()
 		{
 			InitializeComponent();

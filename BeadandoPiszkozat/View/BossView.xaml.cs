@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeadandoPiszkozat.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace BeadandoPiszkozat.View
 	/// </summary>
 	public partial class BossView : UserControl
 	{
+		UsersViewModel _usersViewModel;
 		public BossView()
 		{
 			InitializeComponent();
+			_usersViewModel = new UsersViewModel();
+			DataContext = _usersViewModel;
 		}
 	}
 }

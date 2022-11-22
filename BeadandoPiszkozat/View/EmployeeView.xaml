@@ -15,7 +15,7 @@
 						<DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=ID}"/>
 						<DataGridTextColumn Header="FirstName" Width="auto" Binding="{Binding Path=FirstName}"/>
 						<DataGridTextColumn Header="LastName" Width="auto" Binding="{Binding Path=LastName}"/>
-						<DataGridTextColumn Header="DateOfBirht" Width="auto" Binding="{Binding Path=DateOfBirht}"/>
+						<DataGridTextColumn Header="DateOfBirht" Width="auto" Binding="{Binding Path=DateOfBirht, StringFormat=\{0:yyyy.MM.dd\}}"/>
 						<DataGridTextColumn Header="Gender" Width="auto" Binding="{Binding Path=Gender}"/>
 						<DataGridTextColumn Header="Position" Width="auto" Binding="{Binding Path=Position}"/>
 						<DataGridTextColumn Header="Salary" Width="auto" Binding="{Binding Path=Salary}"/>
@@ -45,7 +45,7 @@
 					<Label Content="LastName" HorizontalAlignment="Center"/>
 					<TextBox x:Name="txtBxLastName" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.LastName, Mode=TwoWay}"/>
 					<Label Content="DateOfBirth" HorizontalAlignment="Center"/>
-					<TextBox x:Name="txtBxDateOfBirth" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.DateOfBirht, Mode=TwoWay}"/>
+					<TextBox x:Name="txtBxDateOfBirth" Padding="5" Margin="5" Text="{Binding Path=currentEmploye.DateOfBirht,StringFormat=\{0:yyyy.MM.dd\}, Mode=TwoWay}"/>
 				</StackPanel>
 				<StackPanel Grid.Column="0" Grid.Row="1">
 					<Label Content="Gender" HorizontalAlignment="Center"/>
@@ -61,8 +61,8 @@
 				</StackPanel>
 				<StackPanel Grid.ColumnSpan="2" Grid.Row="2" Orientation="Horizontal">
 					<Button Content="Add" Width="70" Height="70" Margin="50 0 0 0" Command="{Binding Path=SaveCommand}" />
-					<Button Content="Delete" Width="70" Height="70" Margin="50 0 0 0" />
-					<Button Content="Update" Width="70" Height="70" Margin="50 0 0 0" />
+					<Button Content="Delete" Width="70" Height="70" Margin="50 0 0 0" Command="{Binding Path=DeleteCommand}" />
+					<Button Content="Update" Width="70" Height="70" Margin="50 0 0 0" Command="{Binding Path=UpdateCommand}"/>
 				</StackPanel>
 			</Grid>
 		</StackPanel>

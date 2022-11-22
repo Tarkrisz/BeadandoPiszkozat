@@ -10,16 +10,16 @@
 		<StackPanel>
 			<TextBlock Text="Cars" FontSize="30" HorizontalAlignment="Center"/>
 			<ScrollViewer Grid.Row="2" Grid.Column="1" Height="300" Width="550" Margin="10">
-				<DataGrid x:Name="dtGrd" Width="800" AutoGenerateColumns="False" Background="Azure" ItemsSource="{Binding Path=Cars, Mode=TwoWay}">
+				<DataGrid x:Name="dtGrd" Width="550" AutoGenerateColumns="False" Background="Azure" ItemsSource="{Binding Path=Cars, Mode=TwoWay}">
 					<DataGrid.Columns>
-						<DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
+						<DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/> 
 						<DataGridTextColumn Header="Brand" Width="auto" Binding="{Binding Path=Brand}"/>
 						<DataGridTextColumn Header="Model" Width="auto" Binding="{Binding Path=Model}"/>
 						<DataGridTextColumn Header="Fuel" Width="auto" Binding="{Binding Path=Fuel}"/>
 						<DataGridTextColumn Header="MaxPassenger" Width="auto" Binding="{Binding Path=MaxPassenger}"/>
 						<DataGridTextColumn Header="NumberOfDoors" Width="auto" Binding="{Binding Path=NumberOfDoors}"/>
 						<DataGridTextColumn Header="AvailableType" Width="auto" Binding="{Binding Path=AvailableType}"/>
-						<DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Path=Price}"/>
+						<DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Path=Price, StringFormat=C, ConverterCulture=HU }"/>
 					</DataGrid.Columns>
 				</DataGrid>
 			</ScrollViewer>

@@ -92,5 +92,50 @@ namespace BeadandoPiszkozat.Model
 			}
 			return isAdded;
 		}
+
+		public bool deleteEmployee(int id)
+		{
+			bool isDeleted = false;
+			try
+			{
+				var _employee = _probaLoginDBEntities.Employee.Find(id);
+				_probaLoginDBEntities.Employee.Remove(_employee);
+				var numberOfRowsAffected = _probaLoginDBEntities.SaveChanges();
+				isDeleted = numberOfRowsAffected > 0;
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+			return isDeleted;
+		}
+
+		public bool update(EmployeeDTO employeeUpdate)
+		{
+			bool isUpdated = false;
+			try
+			{
+				var _employee = _probaLoginDBEntities.Employee.Find(employeeUpdate.ID);
+				_employee.FirstName = employeeUpdate.FirstName;
+				_employee.LastName = employeeUpdate.LastName;
+				_employee.DateOfBirht = employeeUpdate.DateOfBirht;
+				_employee.Gender = employeeUpdate.Gender;
+				_employee.Position = employeeUpdate.Position;
+				_employee.Salary = employeeUpdate.Salary;
+				_employee.CityOfWork = employeeUpdate.CityOfWork;
+
+				var numberOfRowsAffected = _probaLoginDBEntities.SaveChanges();
+				isUpdated = numberOfRowsAffected > 0;
+
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+
+			return isUpdated;
+		}
 	}
 }

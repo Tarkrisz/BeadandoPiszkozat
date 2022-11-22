@@ -5,8 +5,51 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BeadandoPiszkozat.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-		<Label Content="Boss" FontSize="20"/>
-	</Grid>
+             d:DesignHeight="400" d:DesignWidth="950">
+    <StackPanel Orientation="Horizontal">
+		<StackPanel Width="500">
+			<StackPanel Height="300">
+				<Label Content="Users" Height="40" FontSize="20" HorizontalAlignment="Center"/>
+				<ScrollViewer Height="260" Width="255" Margin="20,0,0,0">
+					<DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Path=Users, Mode=TwoWay}">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="ID" Width="50" Binding="{Binding Path=Id}"/>
+							<DataGridTextColumn Header="UserName" Width="100" Binding="{Binding Path=Name}"/>
+							<DataGridTextColumn Header="Level" Width="80" Binding="{Binding Path=Type}"/>
+						</DataGrid.Columns>
+					</DataGrid>
+				</ScrollViewer>
+			</StackPanel>
+			<StackPanel Height="100" Orientation="Horizontal">
+				<StackPanel Width="200">
+					<Label Content="ID" HorizontalAlignment="Center"/>
+					<TextBox Margin="10,0,10,0"/>
+					<Label Content="UserName" HorizontalAlignment="Center"/>
+					<TextBox Margin="10,0,10,0"/>
+				</StackPanel>
+				<StackPanel Width="200">
+					<Label Content="Password" HorizontalAlignment="Center"/>
+					<TextBox Margin="10,0,10,0"/>
+					<Label Content="Level" HorizontalAlignment="Center"/>
+					<TextBox Margin="10,0,10,0"/>
+				</StackPanel>
+				<StackPanel Width="100" Orientation="Horizontal">
+					<Button Content="Add" Height="50" Width="45" Margin="5,0,0,0"/>
+					<Button Content="Delete" Height="50" Width="45" Margin="5,0,0,0"/>
+				</StackPanel>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel Width="450">
+			<StackPanel Height="300">
+				<Label Content="To Do List" HorizontalAlignment="Center" FontSize="30"/>
+				<ListBox Height="200" Margin="5">
+
+				</ListBox>
+			</StackPanel>
+			<StackPanel Height="100" Orientation="Horizontal">
+				<TextBox Width="250" Height="50" Margin="50,0,0,0"/>
+				<Button Height="50" Width="50" Content="Send" Margin="20,0,0,0"/>
+			</StackPanel>
+		</StackPanel>
+	</StackPanel>
 </UserControl>

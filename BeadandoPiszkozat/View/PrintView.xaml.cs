@@ -25,7 +25,48 @@ namespace BeadandoPiszkozat.View
             InitializeComponent();
             _printViewModel = new PrintViewModel();
             DataContext = _printViewModel;
-            txtBxTitle.Text = SelectedCar.Brand + "|" + SelectedCar.Fuel + "|" + SelectedCar.MaxPassenger;
+            if (SelectedCar.AvailableType == "Eladó")
+            {
+                txtBxTitle.Text = "Eladási szerződés";
+
+                txtBxData_Car.Text = $"1. Jármű adatai:\n" + 
+                    $"Típus: {SelectedCar.Brand}\n" + 
+                    $"Model: {SelectedCar.Model}\n" + 
+                    $"Szállítható személyek száma: {SelectedCar.MaxPassenger}\n" + 
+                    $"Ajtók száma: {SelectedCar.NumberOfDoors}\n" + 
+                    $"Ár: {SelectedCar.Price}\n";
+
+                txtBxData_Person.Text = $"2. Vevő adatai:\n" + 
+                    $"Név:\n" + 
+                    $"Születési hely, idő:\n" + 
+                    $"Anyja neve:\n" + 
+                    $"Lakcíme:\n" + 
+                    $"Állampolgársága:\n";
+            }
+            else if (SelectedCar.AvailableType == "Kölcsönözhető")
+            {
+                txtBxTitle.Text = "Kölcsönzési szerződés";
+
+                txtBxData_Car.Text = $"1. Jármű adatai:\n" +
+                    $"Típus: {SelectedCar.Brand}\n" +
+                    $"Model: {SelectedCar.Model}\n" +
+                    $"Szállítható személyek száma: {SelectedCar.MaxPassenger}\n" +
+                    $"Ajtók száma: {SelectedCar.NumberOfDoors}\n" +
+                    $"Ár: {SelectedCar.Price}\n";
+
+                txtBxData_Person.Text = $"2. Kölcsönző adatai:\n" +
+                    $"Név:\n" +
+                    $"Születési hely, idő:\n" +
+                    $"Anyja neve:\n" +
+                    $"Lakcíme:\n" +
+                    $"Állampolgársága:\n" +
+                    $"Kölcsönzési idő:\n";
+            }
+            else
+            {
+                txtBxData_Car.Text = "Error. Not recognized type.";
+                txtBxData_Person.Text = "";
+            }
         }
     }
 }
